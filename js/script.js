@@ -170,7 +170,11 @@ function renderStokTable() {
     tbody.innerHTML = "";
     dataBahanAjar.forEach(function (item) {
         var row = document.createElement("tr");
+        var coverHtml = item.cover
+            ? "<img src=\"" + item.cover + "\" alt=\"Cover " + item.namaBarang + "\" style=\"width:56px;height:auto;border-radius:6px;\">"
+            : "-";
         row.innerHTML =
+            "<td>" + coverHtml + "</td>" +
             "<td>" + item.kodeLokasi + "</td>" +
             "<td>" + item.kodeBarang + "</td>" +
             "<td>" + item.namaBarang + "</td>" +
@@ -197,6 +201,7 @@ function tambahStok() {
     var jenisBarang = document.getElementById("jenisBarang").value.trim();
     var edisi = document.getElementById("edisiBarang").value.trim();
     var stok = document.getElementById("jumlahStok").value.trim();
+    var cover = document.getElementById("coverBarang").value.trim();
 
     if (!kodeLokasi || !kodeBarang || !namaBarang || !jenisBarang || !edisi || !stok) {
         alert("Semua input stok wajib diisi.");
@@ -210,7 +215,7 @@ function tambahStok() {
         jenisBarang: jenisBarang,
         edisi: edisi,
         stok: Number(stok),
-        cover: ""
+        cover: cover
     });
 
     renderStokTable();
@@ -222,4 +227,5 @@ function tambahStok() {
     document.getElementById("jenisBarang").value = "";
     document.getElementById("edisiBarang").value = "";
     document.getElementById("jumlahStok").value = "";
+    document.getElementById("coverBarang").value = "";
 }

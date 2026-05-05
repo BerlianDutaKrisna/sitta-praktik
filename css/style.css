@@ -5,10 +5,15 @@ body {
     color: #1f2937;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .container {
     max-width: 1000px;
     margin: 24px auto;
     padding: 0 16px;
+    width: 100%;
 }
 
 h1, h2, h3 {
@@ -17,7 +22,7 @@ h1, h2, h3 {
 
 /* LOGIN */
 .login-container {
-    width: 340px;
+    width: min(340px, calc(100% - 32px));
     margin: 80px auto;
     background: #ffffff;
     padding: 24px;
@@ -103,6 +108,13 @@ button:hover {
     padding: 14px 20px;
     flex-wrap: wrap;
     gap: 12px;
+}
+
+.navbar > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 .navbar a, .navbar span {
@@ -201,4 +213,65 @@ th, td {
 
 th {
     background: #f8fafc;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 900px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    .navbar {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar > div {
+        width: 100%;
+    }
+
+    .navbar a, .navbar span {
+        margin-right: 8px;
+    }
+
+    .content-card {
+        padding: 14px;
+    }
+
+    .modal-content {
+        width: calc(100% - 32px);
+        margin: 100px auto;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        margin: 32px auto;
+        padding: 16px;
+    }
+
+    .container {
+        margin: 16px auto;
+        padding: 0 10px;
+    }
+
+    button {
+        padding: 12px;
+    }
 }
