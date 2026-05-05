@@ -2,9 +2,7 @@ function getUserData() {
     if (typeof dataPengguna !== "undefined" && Array.isArray(dataPengguna)) {
         return dataPengguna;
     }
-    return [
-        { email: "admin@ut.ac.id", password: "admin123", nama: "Admin SITTA" }
-    ];
+    return [];
 }
 
 function login() {
@@ -12,8 +10,17 @@ function login() {
     var passwordInput = document.getElementById("password");
     var email = emailInput ? emailInput.value.trim() : "";
     var password = passwordInput ? passwordInput.value.trim() : "";
+    if (!email || !password) {
+        alert("masukan email dan password terlebih dahulu");
+        return;
+    }
 
     var pengguna = getUserData();
+    if (!pengguna.length) {
+        alert("data tidak ada silahkan daftar terlebih dahulu");
+        return;
+    }
+
     var akun = pengguna.find(function (item) {
         return item.email === email && item.password === password;
     });
@@ -25,7 +32,7 @@ function login() {
         return;
     }
 
-    alert("email/password yang anda masukkan salah");
+    alert("email dan password salah");
 }
 
 function loadUser() {
