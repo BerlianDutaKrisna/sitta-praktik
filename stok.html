@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informasi Stok Bahan Ajar</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="initStokPage()">
+    <nav class="navbar">
+        <div><strong>SITTA</strong></div>
+        <div>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="tracking.html">Tracking Pengiriman</a>
+            <a href="stok.html">Informasi Bahan Ajar</a>
+        </div>
+        <div>
+            <span id="userLogin"></span>
+            <a href="#" onclick="logout()">Logout</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="content-card">
+            <h2>Informasi Stok Bahan Ajar</h2>
+            <p>Data ditampilkan secara dinamis dari `dataBahanAjar` pada `js/data.js`.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kode Lokasi</th>
+                        <th>Kode Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Jenis</th>
+                        <th>Edisi</th>
+                        <th>Stok</th>
+                    </tr>
+                </thead>
+                <tbody id="stokTableBody"></tbody>
+            </table>
+        </section>
+
+        <section class="content-card">
+            <h3>Tambah Stok Baru</h3>
+            <input type="text" id="kodeLokasi" placeholder="Kode Lokasi">
+            <input type="text" id="kodeBarang" placeholder="Kode Barang">
+            <input type="text" id="namaBarang" placeholder="Nama Barang">
+            <input type="text" id="jenisBarang" placeholder="Jenis Barang">
+            <input type="text" id="edisiBarang" placeholder="Edisi">
+            <input type="number" id="jumlahStok" placeholder="Jumlah Stok">
+            <button type="button" onclick="tambahStok()">Tambah Baris Stok</button>
+        </section>
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
